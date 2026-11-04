@@ -1,0 +1,15 @@
+services:
+  db:
+    image: postgres:16-alpine
+    container_name: boaba-db
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: boaba
+      POSTGRES_PASSWORD: boaba
+      POSTGRES_DB: boaba
+    ports:
+      - "5434:5432"
+    volumes:
+      - boaba-pgdata:/var/lib/postgresql/data
+volumes:
+  boaba-pgdata:
