@@ -92,11 +92,11 @@ export default async function seedDemoData({ container }: ExecArgs) {
       store_id: store.id,
       supported_currencies: [
         {
-          currency_code: "eur",
+          currency_code: "ron",
           is_default: true,
         },
         {
-          currency_code: "usd",
+          currency_code: "eur",
         },
       ],
     },
