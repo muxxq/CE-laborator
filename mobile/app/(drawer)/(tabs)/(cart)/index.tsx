@@ -1,7 +1,7 @@
 import { CartItem } from '@/components/cart-item';
 import { Loading } from '@/components/loading';
 import { Button } from '@/components/ui/button';
-import { Colors } from '@/constants/theme';
+import { Colors, FontFamily } from '@/constants/theme';
 import { useCart } from '@/context/cart-context';
 import { useColorScheme } from '@/hooks/use-color-scheme';
 import { formatPrice } from '@/lib/format-price';
@@ -106,13 +106,14 @@ const styles = StyleSheet.create({
   },
   emptyTitle: {
     fontSize: 24,
-    fontWeight: '700',
     marginBottom: 12,
+    fontFamily: FontFamily.title,
   },
   emptyText: {
     fontSize: 16,
     textAlign: 'center',
     marginBottom: 32,
+    fontFamily: FontFamily.regular,
   },
   browseButton: {
     minWidth: 200,
@@ -135,10 +136,11 @@ const styles = StyleSheet.create({
   },
   totalLabel: {
     fontSize: 14,
+    fontFamily: FontFamily.regular,
   },
   totalValue: {
     fontSize: 14,
-    fontWeight: '500',
+    fontFamily: FontFamily.medium,
   },
   grandTotalRow: {
     marginTop: 8,
@@ -147,10 +149,10 @@ const styles = StyleSheet.create({
   },
   grandTotalLabel: {
     fontSize: 18,
-    fontWeight: '700',
+    fontFamily: FontFamily.bold,
   },
   grandTotalValue: {
     fontSize: 20,
-    fontWeight: '700',
+    fontFamily: FontFamily.title,
   },
 });

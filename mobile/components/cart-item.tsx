@@ -1,5 +1,5 @@
 import { IconSymbol } from "@/components/ui/icon-symbol";
-import { Colors } from "@/constants/theme";
+import { Colors, FontFamily } from "@/constants/theme";
 import { useColorScheme } from '@/hooks/use-color-scheme';
 import { formatPrice } from "@/lib/format-price";
 import type { HttpTypes } from "@medusajs/types";
@@ -90,17 +90,18 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 14,
-    fontWeight: "600",
     marginBottom: 4,
+    fontFamily: FontFamily.semiBold,
   },
   variant: {
     fontSize: 12,
     marginBottom: 4,
+    fontFamily: FontFamily.regular,
   },
   price: {
     fontSize: 14,
-    fontWeight: "700",
     marginTop: 4,
+    fontFamily: FontFamily.bold,
   },
   actions: {
     flexDirection: "row",
@@ -122,14 +123,14 @@ const styles = StyleSheet.create({
   },
   quantityButtonText: {
     fontSize: 16,
-    fontWeight: "600",
+    fontFamily: FontFamily.semiBold,
   },
   quantity: {
     marginHorizontal: 12,
     fontSize: 14,
-    fontWeight: "600",
     minWidth: 20,
     textAlign: "center",
+    fontFamily: FontFamily.semiBold,
   },
   removeButton: {
     padding: 4,

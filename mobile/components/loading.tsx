@@ -1,4 +1,4 @@
-import { Colors } from "@/constants/theme";
+import { Colors, FontFamily } from "@/constants/theme";
 import { useColorScheme } from '@/hooks/use-color-scheme';
 import React from "react";
 import { ActivityIndicator, StyleSheet, Text, View } from "react-native";
@@ -31,6 +31,7 @@ const styles = StyleSheet.create({
   message: {
     marginTop: 12,
     fontSize: 16,
+    fontFamily: FontFamily.regular,
   },
 });
 

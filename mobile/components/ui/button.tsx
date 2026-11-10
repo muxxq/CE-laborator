@@ -1,4 +1,4 @@
-import { Colors } from "@/constants/theme";
+import { Colors, FontFamily } from "@/constants/theme";
 import { useColorScheme } from '@/hooks/use-color-scheme';
 import React from "react";
 import {
@@ -77,7 +77,7 @@ const styles = StyleSheet.create({
   },
   text: {
     fontSize: 16,
-    fontWeight: "600",
+    fontFamily: FontFamily.semiBold,
   },
   disabled: {
     opacity: 0.5,

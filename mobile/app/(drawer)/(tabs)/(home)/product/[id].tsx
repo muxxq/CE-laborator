@@ -2,7 +2,7 @@ import { ProductImageSlider } from '@/components/product-image-slider';
 import { ProductSkeleton } from '@/components/product-skeleton';
 import { Button } from '@/components/ui/button';
 import { Toast } from '@/components/ui/toast';
-import { Colors } from '@/constants/theme';
+import { Colors, FontFamily } from '@/constants/theme';
 import { useCart } from '@/context/cart-context';
 import { useRegion } from '@/context/region-context';
 import { useColorScheme } from '@/hooks/use-color-scheme';
@@ -227,7 +227,7 @@ export default function ProductDetailsScreen() {
                             styles.optionText,
                             {
                               color: isSelected ? colors.tint : colors.text,
-                              fontWeight: isSelected ? '600' : '400',
+                              fontFamily: isSelected ? FontFamily.semiBold : FontFamily.regular,
                             },
                           ]}
                         >
@@ -295,21 +295,22 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 28,
-    fontWeight: '700',
     marginBottom: 12,
+    fontFamily: FontFamily.title,
   },
   description: {
     fontSize: 16,
     lineHeight: 24,
     marginBottom: 20,
+    fontFamily: FontFamily.regular,
   },
   priceContainer: {
     marginBottom: 24,
   },
   price: {
     fontSize: 20,
-    fontWeight: '700',
     marginBottom: 8,
+    fontFamily: FontFamily.title,
   },
   stockBadge: {
     paddingHorizontal: 12,
@@ -319,12 +320,12 @@ const styles = StyleSheet.create({
   },
   outOfStockText: {
     fontSize: 13,
-    fontWeight: '600',
     textTransform: 'uppercase',
+    fontFamily: FontFamily.semiBold,
   },
   lowStockText: {
     fontSize: 13,
-    fontWeight: '600',
+    fontFamily: FontFamily.semiBold,
   },
   optionsSection: {
     marginBottom: 24,
@@ -334,8 +335,8 @@ const styles = StyleSheet.create({
   },
   sectionTitle: {
     fontSize: 18,
-    fontWeight: '600',
     marginBottom: 12,
+    fontFamily: FontFamily.semiBold,
   },
   optionValues: {
     flexDirection: 'row',
@@ -350,6 +351,7 @@ const styles = StyleSheet.create({
   },
   optionText: {
     fontSize: 14,
+    fontFamily: FontFamily.regular,
   },
   quantitySection: {
     marginBottom: 32,
@@ -368,14 +370,14 @@ const styles = StyleSheet.create({
   },
   quantityButtonText: {
     fontSize: 18,
-    fontWeight: '600',
+    fontFamily: FontFamily.semiBold,
   },
   quantity: {
     marginHorizontal: 20,
     fontSize: 18,
-    fontWeight: '600',
     minWidth: 30,
     textAlign: 'center',
+    fontFamily: FontFamily.semiBold,
   },
   addButton: {
     marginTop: 8,
@@ -383,6 +385,7 @@ const styles = StyleSheet.create({
   errorText: {
     fontSize: 16,
     textAlign: 'center',
+    fontFamily: FontFamily.regular,
   },
 });
 

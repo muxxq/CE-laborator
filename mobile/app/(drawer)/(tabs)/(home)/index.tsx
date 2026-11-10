@@ -1,6 +1,6 @@
 import { Loading } from '@/components/loading';
 import { ProductCard } from '@/components/product-card';
-import { Colors } from '@/constants/theme';
+import { Colors, FontFamily } from '@/constants/theme';
 import { useRegion } from '@/context/region-context';
 import { useColorScheme } from '@/hooks/use-color-scheme';
 import { sdk } from '@/lib/sdk';
@@ -125,10 +125,10 @@ const styles = StyleSheet.create({
   },
   sectionTitle: {
     fontSize: 24,
-    fontWeight: '700',
     marginTop: 24,
     marginBottom: 16,
     paddingHorizontal: 16,
+    fontFamily: FontFamily.title,
   },
   listContent: {
     paddingBottom: 20,
@@ -140,6 +140,7 @@ const styles = StyleSheet.create({
   errorText: {
     fontSize: 16,
     textAlign: 'center',
+    fontFamily: FontFamily.regular,
   },
   emptyContainer: {
     padding: 40,
@@ -147,6 +148,7 @@ const styles = StyleSheet.create({
   },
   emptyText: {
     fontSize: 16,
+    fontFamily: FontFamily.regular,
   },
 });
 

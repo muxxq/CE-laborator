@@ -5,13 +5,31 @@ import { StatusBar } from 'expo-status-bar';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import 'react-native-reanimated';
 
-import { Colors } from '@/constants/theme';
+import { Colors, FontFamily } from '@/constants/theme';
+import { Fraunces_600SemiBold, Fraunces_700Bold } from '@expo-google-fonts/fraunces';
+import {
+  Inter_400Regular,
+  Inter_500Medium,
+  Inter_600SemiBold,
+  Inter_700Bold,
+  useFonts,
+} from '@expo-google-fonts/inter';
+
 import { CartProvider } from '@/context/cart-context';
 import { RegionProvider } from '@/context/region-context';
+
+// Fonturile folosite de navigație (titlurile din header, etichetele din tab-uri și din meniu)
+const boabaFonts = {
+  regular: { fontFamily: FontFamily.regular, fontWeight: '400' as const },
+  medium: { fontFamily: FontFamily.medium, fontWeight: '500' as const },
+  bold: { fontFamily: FontFamily.titleSemiBold, fontWeight: '600' as const },
+  heavy: { fontFamily: FontFamily.title, fontWeight: '700' as const },
+};
 
 // Tema navigației (header-e, bara de tab-uri, meniul lateral) construită din paleta Boabă
 const BoabaLightTheme = {
   ...DefaultTheme,
+  fonts: boabaFonts,
   colors: {
     ...DefaultTheme.colors,
     primary: Colors.light.tint,
@@ -25,6 +43,7 @@ const BoabaLightTheme = {
 
 const BoabaDarkTheme = {
   ...DarkTheme,
+  fonts: boabaFonts,
   colors: {
     ...DarkTheme.colors,
     primary: Colors.dark.tint,
@@ -38,6 +57,19 @@ const BoabaDarkTheme = {
 
 export default function RootLayout() {
   const colorScheme = useColorScheme();
+  const [fontsLoaded] = useFonts({
+    Fraunces_600SemiBold,
+    Fraunces_700Bold,
+    Inter_400Regular,
+    Inter_500Medium,
+    Inter_600SemiBold,
+    Inter_700Bold,
+  });
+
+  // Până se încarcă fonturile nu afișăm nimic (durează o fracțiune de secundă)
+  if (!fontsLoaded) {
+    return null;
+  }
 
   return (
     <GestureHandlerRootView style={{ flex: 1 }}>

@@ -1,7 +1,7 @@
 import { DeliveryStep } from '@/components/checkout/delivery-step';
 import { PaymentStep } from '@/components/checkout/payment-step';
 import { ShippingStep } from '@/components/checkout/shipping-step';
-import { Colors } from '@/constants/theme';
+import { Colors, FontFamily } from '@/constants/theme';
 import { useCart } from '@/context/cart-context';
 import { useColorScheme } from '@/hooks/use-color-scheme';
 import { sdk } from '@/lib/sdk';
@@ -287,7 +287,7 @@ export default function CheckoutScreen() {
                 styles.stepLabel,
                 {
                   color: currentStep === step ? colors.text : colors.icon,
-                  fontWeight: currentStep === step ? '600' : '400',
+                  fontFamily: currentStep === step ? FontFamily.semiBold : FontFamily.regular,
                 },
               ]}
             >
@@ -374,10 +374,11 @@ const styles = StyleSheet.create({
   },
   stepNumber: {
     fontSize: 16,
-    fontWeight: '600',
+    fontFamily: FontFamily.semiBold,
   },
   stepLabel: {
     fontSize: 12,
+    fontFamily: FontFamily.regular,
   },
   content: {
     flex: 1,
@@ -385,6 +386,7 @@ const styles = StyleSheet.create({
   errorText: {
     fontSize: 16,
     textAlign: 'center',
+    fontFamily: FontFamily.regular,
   },
 });
 

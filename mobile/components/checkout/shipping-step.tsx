@@ -1,6 +1,6 @@
 import { Loading } from '@/components/loading';
 import { Button } from '@/components/ui/button';
-import { Colors } from '@/constants/theme';
+import { Colors, FontFamily } from '@/constants/theme';
 import { useColorScheme } from '@/hooks/use-color-scheme';
 import { formatPrice } from '@/lib/format-price';
 import type { HttpTypes } from '@medusajs/types';
@@ -127,8 +127,8 @@ const styles = StyleSheet.create({
   },
   sectionTitle: {
     fontSize: 20,
-    fontWeight: '700',
     marginBottom: 20,
+    fontFamily: FontFamily.title,
   },
   optionCard: {
     flexDirection: 'row',
@@ -144,16 +144,18 @@ const styles = StyleSheet.create({
   },
   optionTitle: {
     fontSize: 16,
-    fontWeight: '600',
     marginBottom: 4,
+    fontFamily: FontFamily.semiBold,
   },
   optionPrice: {
     fontSize: 14,
+    fontFamily: FontFamily.regular,
   },
   emptyText: {
     fontSize: 16,
     textAlign: 'center',
     padding: 20,
+    fontFamily: FontFamily.regular,
   },
   buttonRow: {
     flexDirection: 'row',

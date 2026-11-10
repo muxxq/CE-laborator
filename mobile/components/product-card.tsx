@@ -1,4 +1,4 @@
-import { Colors } from "@/constants/theme";
+import { Colors, FontFamily } from "@/constants/theme";
 import { useRegion } from "@/context/region-context";
 import { useColorScheme } from '@/hooks/use-color-scheme';
 import { formatPrice } from "@/lib/format-price";
@@ -79,8 +79,8 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 14,
-    fontWeight: "600",
     marginBottom: 12,
+    fontFamily: FontFamily.semiBold,
   },
   priceRow: {
     flexDirection: "row",
@@ -90,8 +90,8 @@ const styles = StyleSheet.create({
   },
   price: {
     fontSize: 14,
-    fontWeight: "400",
     flex: 1,
+    fontFamily: FontFamily.regular,
   },
 });
 

@@ -1,4 +1,4 @@
-import { Colors } from "@/constants/theme";
+import { Colors, FontFamily } from "@/constants/theme";
 import { useRegion } from "@/context/region-context";
 import { useColorScheme } from '@/hooks/use-color-scheme';
 import type { HttpTypes } from "@medusajs/types";
@@ -81,7 +81,7 @@ export function RegionSelector({ onRegionChange }: RegionSelectorProps) {
                     styles.countryName,
                     {
                       color: isSelected ? colors.tint : colors.text,
-                      fontWeight: isSelected ? "600" : "400",
+                      fontFamily: isSelected ? FontFamily.semiBold : FontFamily.regular,
                     },
                   ]}
                 >
@@ -109,8 +109,8 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 20,
-    fontWeight: "700",
     marginBottom: 20,
+    fontFamily: FontFamily.title,
   },
   countryItem: {
     flexDirection: "row",
@@ -127,14 +127,17 @@ const styles = StyleSheet.create({
   countryName: {
     fontSize: 16,
     marginBottom: 4,
+    fontFamily: FontFamily.regular,
   },
   currencyCode: {
     fontSize: 12,
+    fontFamily: FontFamily.regular,
   },
   emptyText: {
     fontSize: 14,
     textAlign: "center",
     marginTop: 20,
+    fontFamily: FontFamily.regular,
   },
 });
 

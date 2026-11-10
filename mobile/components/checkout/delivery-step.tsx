@@ -1,6 +1,6 @@
 import { AddressForm } from '@/components/checkout/address-form';
 import { Button } from '@/components/ui/button';
-import { Colors } from '@/constants/theme';
+import { Colors, FontFamily } from '@/constants/theme';
 import { useRegion } from '@/context/region-context';
 import { useColorScheme } from '@/hooks/use-color-scheme';
 import React, { useEffect, useRef, useState } from 'react';
@@ -206,8 +206,8 @@ const styles = StyleSheet.create({
   },
   sectionTitle: {
     fontSize: 20,
-    fontWeight: '700',
     marginBottom: 20,
+    fontFamily: FontFamily.title,
   },
   input: {
     borderWidth: 1,
@@ -215,6 +215,7 @@ const styles = StyleSheet.create({
     padding: 12,
     fontSize: 16,
     marginBottom: 12,
+    fontFamily: FontFamily.regular,
   },
   switchContainer: {
     flexDirection: 'row',
@@ -225,6 +226,7 @@ const styles = StyleSheet.create({
   switchLabel: {
     fontSize: 16,
     flex: 1,
+    fontFamily: FontFamily.regular,
   },
   button: {
     marginTop: 8,

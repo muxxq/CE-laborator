@@ -1,5 +1,5 @@
 import { IconSymbol } from '@/components/ui/icon-symbol';
-import { Colors } from '@/constants/theme';
+import { Colors, FontFamily } from '@/constants/theme';
 import { useColorScheme } from '@/hooks/use-color-scheme';
 import type { HttpTypes } from '@medusajs/types';
 import { Picker } from '@react-native-picker/picker';
@@ -245,6 +245,7 @@ const styles = StyleSheet.create({
     padding: 12,
     fontSize: 16,
     marginBottom: 12,
+    fontFamily: FontFamily.regular,
   },
   row: {
     flexDirection: 'row',
@@ -261,6 +262,7 @@ const styles = StyleSheet.create({
   pickerButtonText: {
     fontSize: 16,
     flex: 1,
+    fontFamily: FontFamily.regular,
   },
   modalOverlay: {
     flex: 1,
@@ -281,11 +283,11 @@ const styles = StyleSheet.create({
   },
   modalTitle: {
     fontSize: 18,
-    fontWeight: '600',
+    fontFamily: FontFamily.semiBold,
   },
   modalButton: {
     fontSize: 16,
-    fontWeight: '600',
+    fontFamily: FontFamily.semiBold,
   },
   picker: {
     width: '100%',

@@ -1,4 +1,4 @@
-import { Colors } from '@/constants/theme';
+import { Colors, FontFamily } from '@/constants/theme';
 import { useColorScheme } from '@/hooks/use-color-scheme';
 import React, { useCallback, useEffect, useRef } from 'react';
 import { Animated, StyleSheet, Text, View } from 'react-native';
@@ -111,8 +111,8 @@ const styles = StyleSheet.create({
   },
   message: {
     fontSize: 15,
-    fontWeight: '600',
     textAlign: 'center',
+    fontFamily: FontFamily.semiBold,
   },
 });
 

@@ -1,7 +1,7 @@
 import { Loading } from '@/components/loading';
 import { Button } from '@/components/ui/button';
 import { IconSymbol } from '@/components/ui/icon-symbol';
-import { Colors } from '@/constants/theme';
+import { Colors, FontFamily } from '@/constants/theme';
 import { useColorScheme } from '@/hooks/use-color-scheme';
 import { formatPrice } from '@/lib/format-price';
 import { getPaymentProviderInfo } from '@/lib/payment-providers';
@@ -163,8 +163,8 @@ const styles = StyleSheet.create({
   },
   sectionTitle: {
     fontSize: 20,
-    fontWeight: '700',
     marginBottom: 20,
+    fontFamily: FontFamily.title,
   },
   optionCard: {
     flexDirection: 'row',
@@ -183,12 +183,13 @@ const styles = StyleSheet.create({
   },
   optionTitle: {
     fontSize: 16,
-    fontWeight: '600',
+    fontFamily: FontFamily.semiBold,
   },
   emptyText: {
     fontSize: 16,
     textAlign: 'center',
     padding: 20,
+    fontFamily: FontFamily.regular,
   },
   summary: {
     borderWidth: 1,
@@ -199,8 +200,8 @@ const styles = StyleSheet.create({
   },
   summaryTitle: {
     fontSize: 18,
-    fontWeight: '700',
     marginBottom: 12,
+    fontFamily: FontFamily.bold,
   },
   summaryRow: {
     flexDirection: 'row',
@@ -209,10 +210,11 @@ const styles = StyleSheet.create({
   },
   summaryLabel: {
     fontSize: 14,
+    fontFamily: FontFamily.regular,
   },
   summaryValue: {
     fontSize: 14,
-    fontWeight: '500',
+    fontFamily: FontFamily.medium,
   },
   totalRow: {
     marginTop: 12,
@@ -221,11 +223,11 @@ const styles = StyleSheet.create({
   },
   totalLabel: {
     fontSize: 18,
-    fontWeight: '700',
+    fontFamily: FontFamily.bold,
   },
   totalValue: {
     fontSize: 20,
-    fontWeight: '700',
+    fontFamily: FontFamily.title,
   },
   buttonRow: {
     flexDirection: 'row',

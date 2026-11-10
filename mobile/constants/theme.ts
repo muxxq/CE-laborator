@@ -46,6 +46,17 @@ export const Colors = {
   },
 };
 
+// Fonturile Boabă (încărcate în app/_layout.tsx cu useFonts).
+// Fiecare grosime e un font separat, de aceea nu mai folosim fontWeight.
+export const FontFamily = {
+  title: 'Fraunces_700Bold', // titluri mari (serif, „de cafenea”)
+  titleSemiBold: 'Fraunces_600SemiBold', // subtitluri, prețuri mari
+  regular: 'Inter_400Regular', // text normal
+  medium: 'Inter_500Medium',
+  semiBold: 'Inter_600SemiBold', // butoane, etichete
+  bold: 'Inter_700Bold',
+};
+
 export const Fonts = Platform.select({
   ios: {
     /** iOS `UIFontDescriptorSystemDesignDefault` */

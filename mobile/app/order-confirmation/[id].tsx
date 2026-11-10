@@ -1,7 +1,7 @@
 import { Loading } from '@/components/loading';
 import { Button } from '@/components/ui/button';
 import { IconSymbol } from '@/components/ui/icon-symbol';
-import { Colors } from '@/constants/theme';
+import { Colors, FontFamily } from '@/constants/theme';
 import { useCart } from '@/context/cart-context';
 import { useColorScheme } from '@/hooks/use-color-scheme';
 import { formatPrice } from '@/lib/format-price';
@@ -304,18 +304,19 @@ const styles = StyleSheet.create({
   },
   checkmark: {
     fontSize: 48,
-    fontWeight: '700',
+    fontFamily: FontFamily.title,
   },
   title: {
     fontSize: 28,
-    fontWeight: '700',
     textAlign: 'center',
     marginBottom: 8,
+    fontFamily: FontFamily.title,
   },
   subtitle: {
     fontSize: 16,
     textAlign: 'center',
     marginBottom: 32,
+    fontFamily: FontFamily.regular,
   },
   card: {
     borderWidth: 1,
@@ -325,8 +326,8 @@ const styles = StyleSheet.create({
   },
   cardTitle: {
     fontSize: 18,
-    fontWeight: '700',
     marginBottom: 16,
+    fontFamily: FontFamily.bold,
   },
   infoRow: {
     flexDirection: 'row',
@@ -335,20 +336,22 @@ const styles = StyleSheet.create({
   },
   label: {
     fontSize: 14,
+    fontFamily: FontFamily.regular,
   },
   value: {
     fontSize: 14,
-    fontWeight: '500',
+    fontFamily: FontFamily.medium,
   },
   sectionTitle: {
     fontSize: 16,
-    fontWeight: '600',
     marginTop: 16,
     marginBottom: 8,
+    fontFamily: FontFamily.semiBold,
   },
   addressText: {
     fontSize: 14,
     marginBottom: 4,
+    fontFamily: FontFamily.regular,
   },
   paymentMethodRow: {
     flexDirection: 'row',
@@ -378,20 +381,22 @@ const styles = StyleSheet.create({
   },
   itemTitle: {
     fontSize: 14,
-    fontWeight: '600',
     marginBottom: 4,
+    fontFamily: FontFamily.semiBold,
   },
   itemVariant: {
     fontSize: 12,
     marginBottom: 4,
+    fontFamily: FontFamily.regular,
   },
   itemQuantity: {
     fontSize: 12,
+    fontFamily: FontFamily.regular,
   },
   itemPrice: {
     fontSize: 14,
-    fontWeight: '600',
     marginLeft: 12,
+    fontFamily: FontFamily.semiBold,
   },
   summaryRow: {
     flexDirection: 'row',
@@ -400,10 +405,11 @@ const styles = StyleSheet.create({
   },
   summaryLabel: {
     fontSize: 14,
+    fontFamily: FontFamily.regular,
   },
   summaryValue: {
     fontSize: 14,
-    fontWeight: '500',
+    fontFamily: FontFamily.medium,
   },
   totalRow: {
     marginTop: 12,
@@ -412,11 +418,11 @@ const styles = StyleSheet.create({
   },
   totalLabel: {
     fontSize: 18,
-    fontWeight: '700',
+    fontFamily: FontFamily.bold,
   },
   totalValue: {
     fontSize: 20,
-    fontWeight: '700',
+    fontFamily: FontFamily.title,
   },
   button: {
     marginTop: 20,
@@ -428,6 +434,7 @@ const styles = StyleSheet.create({
     fontSize: 16,
     textAlign: 'center',
     marginBottom: 20,
+    fontFamily: FontFamily.regular,
   },
 });
 
