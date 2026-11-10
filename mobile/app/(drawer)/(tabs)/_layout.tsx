@@ -23,7 +23,7 @@ export default function TabLayout() {
       <Tabs.Screen
         name="(home)"
         options={{
-          title: 'Medusa Store',
+          title: 'Boabă',
           tabBarIcon: ({ color }) => <IconSymbol size={28} name="house.fill" color={color as string} />,
           headerShown: false, // Let the home stack manage its own headers
         }}
