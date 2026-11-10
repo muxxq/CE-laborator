@@ -20,7 +20,7 @@ docker compose up -d
 cd backend && npm run dev
 
 # 3. Aplicația mobilă – în alt terminal
-cd mobile && npx expo start --port 8082
+cd mobile && npx expo start --port 8083   # 8082 e ocupat de opencart_web
 ```
 
 Pe iPhone: deschide **Camera**, scanează codul QR din terminal, apoi aplicația se deschide în **Expo Go**.
