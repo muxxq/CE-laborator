@@ -1,3 +1,4 @@
+import { Colors } from '@/constants/theme';
 import { useColorScheme } from '@/hooks/use-color-scheme';
 import React, { useCallback, useEffect, useRef } from 'react';
 import { Animated, StyleSheet, Text, View } from 'react-native';
@@ -67,9 +68,9 @@ export function Toast({
     return null;
   }
 
-  // Use inverted colors for minimal design: white in dark mode, black in light mode
-  const backgroundColor = colorScheme === 'dark' ? '#fff' : '#000';
-  const textColor = colorScheme === 'dark' ? '#000' : '#fff';
+  // Culori inversate față de ecran (espresso pe crem, crem pe espresso)
+  const backgroundColor = Colors[colorScheme ?? 'light'].toastBackground;
+  const textColor = Colors[colorScheme ?? 'light'].toastText;
 
   return (
     <Animated.View

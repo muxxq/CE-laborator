@@ -84,7 +84,7 @@ export default function OrderConfirmationScreen() {
     <ScrollView style={[styles.container, { backgroundColor: colors.background }]}>
       <View style={styles.content}>
         <View style={[styles.successIcon, { backgroundColor: colors.success }]}>
-          <Text style={styles.checkmark}>✓</Text>
+          <Text style={[styles.checkmark, { color: colors.onTint }]}>✓</Text>
         </View>
 
         <Text style={[styles.title, { color: colors.text }]}>Order Confirmed!</Text>
@@ -304,7 +304,6 @@ const styles = StyleSheet.create({
   },
   checkmark: {
     fontSize: 48,
-    color: '#fff',
     fontWeight: '700',
   },
   title: {

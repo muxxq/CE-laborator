@@ -29,15 +29,17 @@ export function Button({
   const isPrimary = variant === "primary";
   const isDisabled = disabled || loading;
   
-  // Primary button: white background with dark text in dark mode, tint background with white text in light mode
-  const primaryBgColor = colorScheme === 'dark' ? '#fff' : colors.tint;
-  const primaryTextColor = colorScheme === 'dark' ? '#000' : '#fff';
+  // Butonul principal: fundal teracotă, textul în culoarea potrivită temei
+  const primaryBgColor = colors.tint;
+  const primaryTextColor = colors.onTint;
 
   return (
     <TouchableOpacity
       style={[
         styles.button,
-        isPrimary ? { backgroundColor: primaryBgColor } : styles.secondaryButton,
+        isPrimary
+          ? { backgroundColor: primaryBgColor }
+          : [styles.secondaryButton, { borderColor: colors.border }],
         isDisabled && styles.disabled,
         style,
       ]}
@@ -72,7 +74,6 @@ const styles = StyleSheet.create({
   secondaryButton: {
     backgroundColor: "transparent",
     borderWidth: 1,
-    borderColor: "#ccc",
   },
   text: {
     fontSize: 16,

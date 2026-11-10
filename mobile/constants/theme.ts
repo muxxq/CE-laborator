@@ -5,37 +5,44 @@
 
 import { Platform } from 'react-native';
 
-const tintColorLight = '#000';
-const tintColorDark = '#fff';
+// Paleta Boabă: crem + espresso + accent teracotă
+const tintColorLight = '#C0583A'; // teracotă
+const tintColorDark = '#E07A5A'; // teracotă deschisă (se vede bine pe fundal închis)
 
 export const Colors = {
   light: {
-    text: '#11181C',
-    background: '#fff',
+    text: '#2B1D14', // espresso
+    background: '#F7F1E8', // crem
     tint: tintColorLight,
-    icon: '#687076',
-    tabIconDefault: '#687076',
+    onTint: '#FFFFFF', // textul de pe butoanele cu fundal teracotă
+    icon: '#8A7A6C', // gri cald (text secundar, iconițe)
+    tabIconDefault: '#8A7A6C',
     tabIconSelected: tintColorLight,
-    border: '#e0e0e0',
-    cardBackground: '#f9f9f9',
-    error: '#ff3b30',
-    warning: '#ff9500',
-    success: '#4CAF50',
-    imagePlaceholder: '#f0f0f0',
+    border: '#E6DACB',
+    cardBackground: '#FFFBF5',
+    error: '#B3261E',
+    warning: '#D9822B',
+    success: '#4F7A3A',
+    imagePlaceholder: '#EDE3D6',
+    toastBackground: '#2B1D14',
+    toastText: '#F7F1E8',
   },
   dark: {
-    text: '#ECEDEE',
-    background: '#151718',
+    text: '#F2E8DC', // crem
+    background: '#1A1411', // espresso
     tint: tintColorDark,
-    icon: '#9BA1A6',
-    tabIconDefault: '#9BA1A6',
+    onTint: '#1A1411', // pe teracota deschisă, textul închis se citește mai bine
+    icon: '#A89888',
+    tabIconDefault: '#A89888',
     tabIconSelected: tintColorDark,
-    border: '#333',
-    cardBackground: '#1a1a1a',
-    error: '#ff3b30',
-    warning: '#ff9500',
-    success: '#4CAF50',
-    imagePlaceholder: '#2a2a2a',
+    border: '#3A2E26',
+    cardBackground: '#241C17',
+    error: '#E5736B',
+    warning: '#E8A25A',
+    success: '#8DB36F',
+    imagePlaceholder: '#2E241E',
+    toastBackground: '#F2E8DC',
+    toastText: '#1A1411',
   },
 };
 

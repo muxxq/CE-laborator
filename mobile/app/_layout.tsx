@@ -5,15 +5,43 @@ import { StatusBar } from 'expo-status-bar';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import 'react-native-reanimated';
 
+import { Colors } from '@/constants/theme';
 import { CartProvider } from '@/context/cart-context';
 import { RegionProvider } from '@/context/region-context';
+
+// Tema navigației (header-e, bara de tab-uri, meniul lateral) construită din paleta Boabă
+const BoabaLightTheme = {
+  ...DefaultTheme,
+  colors: {
+    ...DefaultTheme.colors,
+    primary: Colors.light.tint,
+    background: Colors.light.background,
+    card: Colors.light.cardBackground,
+    text: Colors.light.text,
+    border: Colors.light.border,
+    notification: Colors.light.tint,
+  },
+};
+
+const BoabaDarkTheme = {
+  ...DarkTheme,
+  colors: {
+    ...DarkTheme.colors,
+    primary: Colors.dark.tint,
+    background: Colors.dark.background,
+    card: Colors.dark.cardBackground,
+    text: Colors.dark.text,
+    border: Colors.dark.border,
+    notification: Colors.dark.tint,
+  },
+};
 
 export default function RootLayout() {
   const colorScheme = useColorScheme();
 
   return (
     <GestureHandlerRootView style={{ flex: 1 }}>
-      <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
+      <ThemeProvider value={colorScheme === 'dark' ? BoabaDarkTheme : BoabaLightTheme}>
         <RegionProvider>
           <CartProvider>
             <Stack screenOptions={{ headerShown: false }}>

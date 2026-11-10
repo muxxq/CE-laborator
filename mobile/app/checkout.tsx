@@ -255,9 +255,9 @@ export default function CheckoutScreen() {
     );
   }
 
-  // Active step uses inverted colors: white bg with dark text in dark mode, tint bg with white text in light mode
-  const activeStepBg = colorScheme === 'dark' ? '#fff' : colors.tint;
-  const activeStepText = colorScheme === 'dark' ? '#000' : '#fff';
+  // Pasul activ: fundal teracotă, text în culoarea potrivită temei
+  const activeStepBg = colors.tint;
+  const activeStepText = colors.onTint;
 
   return (
     <View style={[styles.container, { backgroundColor: colors.background }]}>

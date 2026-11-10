@@ -177,14 +177,14 @@ export default function ProductDetailsScreen() {
           </Text>
           {!isInStock && (
             <View style={[styles.stockBadge, { backgroundColor: colors.error }]}>
-              <Text style={styles.outOfStockText}>Out of Stock</Text>
+              <Text style={[styles.outOfStockText, { color: colors.onTint }]}>Out of Stock</Text>
             </View>
           )}
           {isInStock && selectedVariant?.inventory_quantity !== undefined && 
            selectedVariant.inventory_quantity! <= 10 && 
            selectedVariant.manage_inventory !== false && (
             <View style={[styles.stockBadge, { backgroundColor: colors.warning }]}>
-              <Text style={styles.lowStockText}>
+              <Text style={[styles.lowStockText, { color: colors.onTint }]}>
                 Only {selectedVariant.inventory_quantity} left
               </Text>
             </View>
@@ -318,13 +318,11 @@ const styles = StyleSheet.create({
     alignSelf: 'flex-start',
   },
   outOfStockText: {
-    color: '#fff',
     fontSize: 13,
     fontWeight: '600',
     textTransform: 'uppercase',
   },
   lowStockText: {
-    color: '#fff',
     fontSize: 13,
     fontWeight: '600',
   },

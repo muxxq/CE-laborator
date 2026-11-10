@@ -30,7 +30,7 @@ export function ProductSkeleton() {
     outputRange: [0.3, 0.7],
   });
 
-  const skeletonColor = colorScheme === 'dark' ? '#333' : '#e0e0e0';
+  const skeletonColor = colors.imagePlaceholder;
 
   return (
     <View style={[styles.container, { backgroundColor: colors.background }]}>
