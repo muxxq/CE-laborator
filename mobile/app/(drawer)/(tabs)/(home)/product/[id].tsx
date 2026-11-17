@@ -56,7 +56,7 @@ export default function ProductDetailsScreen() {
       }
     } catch (err) {
       console.error('Failed to fetch product:', err);
-      setError('Failed to load product. Please try again.');
+      setError('Produsul nu a putut fi încărcat. Încearcă din nou.');
     } finally {
       setLoading(false);
     }
@@ -117,7 +117,7 @@ export default function ProductDetailsScreen() {
 
   const handleAddToCart = async () => {
     if (!selectedVariant) {
-      setToastMessage(shouldShowOptions ? 'Please select all options' : 'Variant not available');
+      setToastMessage(shouldShowOptions ? 'Alege toate opțiunile' : 'Varianta nu este disponibilă');
       setToastVisible(true);
       return;
     }
@@ -125,10 +125,10 @@ export default function ProductDetailsScreen() {
     try {
       setAddingToCart(true);
       await addToCart(selectedVariant.id, quantity);
-      setToastMessage('Product added to cart!');
+      setToastMessage('Produsul a fost adăugat în coș!');
       setToastVisible(true);
     } catch {
-      setToastMessage('Failed to add product to cart');
+      setToastMessage('Produsul nu a putut fi adăugat în coș');
       setToastVisible(true);
     } finally {
       setAddingToCart(false);
@@ -143,7 +143,7 @@ export default function ProductDetailsScreen() {
     return (
       <View style={[styles.centerContainer, { backgroundColor: colors.background }]}>
         <Text style={[styles.errorText, { color: colors.text }]}>
-          {error || 'Product not found'}
+          {error || 'Produsul nu a fost găsit'}
         </Text>
       </View>
     );
@@ -177,7 +177,7 @@ export default function ProductDetailsScreen() {
           </Text>
           {!isInStock && (
             <View style={[styles.stockBadge, { backgroundColor: colors.error }]}>
-              <Text style={[styles.outOfStockText, { color: colors.onTint }]}>Out of Stock</Text>
+              <Text style={[styles.outOfStockText, { color: colors.onTint }]}>Stoc epuizat</Text>
             </View>
           )}
           {isInStock && selectedVariant?.inventory_quantity !== undefined && 
@@ -185,7 +185,7 @@ export default function ProductDetailsScreen() {
            selectedVariant.manage_inventory !== false && (
             <View style={[styles.stockBadge, { backgroundColor: colors.warning }]}>
               <Text style={[styles.lowStockText, { color: colors.onTint }]}>
-                Only {selectedVariant.inventory_quantity} left
+                Doar {selectedVariant.inventory_quantity} în stoc
               </Text>
             </View>
           )}
@@ -243,7 +243,7 @@ export default function ProductDetailsScreen() {
         )}
 
         <View style={styles.quantitySection}>
-          <Text style={[styles.sectionTitle, { color: colors.text }]}>Quantity</Text>
+          <Text style={[styles.sectionTitle, { color: colors.text }]}>Cantitate</Text>
           <View style={styles.quantityControls}>
             <TouchableOpacity
               style={[styles.quantityButton, { borderColor: colors.icon }]}
@@ -262,7 +262,7 @@ export default function ProductDetailsScreen() {
         </View>
 
         <Button
-          title={isInStock ? "Add to Cart" : "Out of Stock"}
+          title={isInStock ? "Adaugă în coș" : "Stoc epuizat"}
           onPress={handleAddToCart}
           loading={addingToCart}
           disabled={!isInStock}

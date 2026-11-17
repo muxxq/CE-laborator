@@ -66,7 +66,7 @@ export function AddressForm({
   );
   const selectedCountryName = selectedCountry
     ? selectedCountry.display_name || selectedCountry.name || selectedCountry.iso_2 || selectedCountry.id
-    : 'Select Country';
+    : 'Alege țara';
 
   const handleDone = () => {
     onCountryCodeChange(tempCountryCode);
@@ -89,7 +89,7 @@ export function AddressForm({
             styles.halfInput,
             { color: colors.text, borderColor: colors.icon + '30' },
           ]}
-          placeholder="First Name"
+          placeholder="Prenume"
           placeholderTextColor={colors.icon}
           value={firstName}
           onChangeText={onFirstNameChange}
@@ -103,7 +103,7 @@ export function AddressForm({
             styles.halfInput,
             { color: colors.text, borderColor: colors.icon + '30' },
           ]}
-          placeholder="Last Name"
+          placeholder="Nume"
           placeholderTextColor={colors.icon}
           value={lastName}
           onChangeText={onLastNameChange}
@@ -115,7 +115,7 @@ export function AddressForm({
       <TextInput
         ref={addressRef}
         style={[styles.input, { color: colors.text, borderColor: colors.icon + '30' }]}
-        placeholder="Address"
+        placeholder="Adresă"
         placeholderTextColor={colors.icon}
         value={address}
         onChangeText={onAddressChange}
@@ -131,7 +131,7 @@ export function AddressForm({
             styles.halfInput,
             { color: colors.text, borderColor: colors.icon + '30' },
           ]}
-          placeholder="City"
+          placeholder="Oraș"
           placeholderTextColor={colors.icon}
           value={city}
           onChangeText={onCityChange}
@@ -145,7 +145,7 @@ export function AddressForm({
               styles.halfInput,
               { color: colors.text, borderColor: colors.icon + '30' },
             ]}
-            placeholder="Postal Code"
+            placeholder="Cod poștal"
             placeholderTextColor={colors.icon}
             value={postalCode}
             onChangeText={onPostalCodeChange}
@@ -192,11 +192,11 @@ export function AddressForm({
           >
             <View style={[styles.modalHeader, { borderBottomColor: colors.icon + '30' }]}>
               <TouchableOpacity onPress={handleCancel}>
-                <Text style={[styles.modalButton, { color: colors.tint }]}>Cancel</Text>
+                <Text style={[styles.modalButton, { color: colors.tint }]}>Anulează</Text>
               </TouchableOpacity>
-              <Text style={[styles.modalTitle, { color: colors.text }]}>Select Country</Text>
+              <Text style={[styles.modalTitle, { color: colors.text }]}>Alege țara</Text>
               <TouchableOpacity onPress={handleDone}>
-                <Text style={[styles.modalButton, { color: colors.tint }]}>Done</Text>
+                <Text style={[styles.modalButton, { color: colors.tint }]}>Gata</Text>
               </TouchableOpacity>
             </View>
             <Picker
@@ -213,7 +213,7 @@ export function AddressForm({
               style={[styles.picker, Platform.OS === 'android' && { color: colors.text }]}
               itemStyle={Platform.OS === 'ios' ? styles.pickerItemIOS : undefined}
             >
-              <Picker.Item label="Select Country" value="" enabled={false} />
+              <Picker.Item label="Alege țara" value="" enabled={false} />
               {countries.map((country) => {
                 const code = country.iso_2 || country.id;
                 const name = country.display_name || country.name || country.iso_2 || country.id;
@@ -227,7 +227,7 @@ export function AddressForm({
       <TextInput
         ref={phoneRef}
         style={[styles.input, { color: colors.text, borderColor: colors.icon + '30' }]}
-        placeholder="Phone Number"
+        placeholder="Telefon"
         placeholderTextColor={colors.icon}
         value={phone}
         onChangeText={onPhoneChange}

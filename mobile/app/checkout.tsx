@@ -12,6 +12,13 @@ import { Alert, StyleSheet, Text, View } from 'react-native';
 
 type CheckoutStep = 'delivery' | 'shipping' | 'payment';
 
+// Etichetele pașilor afișate în română (cheile rămân în engleză, logica depinde de ele)
+const STEP_LABELS: Record<CheckoutStep, string> = {
+  delivery: 'Adresă',
+  shipping: 'Livrare',
+  payment: 'Plată',
+};
+
 export default function CheckoutScreen() {
   const router = useRouter();
   const colorScheme = useColorScheme();
@@ -100,7 +107,7 @@ export default function CheckoutScreen() {
       setShippingOptions(shipping_options || []);
     } catch (err) {
       console.error('Failed to fetch shipping options:', err);
-      Alert.alert('Error', 'Failed to load shipping options');
+      Alert.alert('Eroare', 'Opțiunile de livrare nu au putut fi încărcate');
     } finally {
       setLoading(false);
     }
@@ -117,7 +124,7 @@ export default function CheckoutScreen() {
       setPaymentProviders(payment_providers || []);
     } catch (err) {
       console.error('Failed to fetch payment providers:', err);
-      Alert.alert('Error', 'Failed to load payment providers');
+      Alert.alert('Eroare', 'Metodele de plată nu au putut fi încărcate');
     } finally {
       setLoading(false);
     }
@@ -136,7 +143,7 @@ export default function CheckoutScreen() {
     if (!email || !shippingAddress.firstName || !shippingAddress.lastName || 
         !shippingAddress.address || !shippingAddress.city || !shippingAddress.postalCode || 
         !shippingAddress.countryCode || !shippingAddress.phone) {
-      Alert.alert('Error', 'Please fill in all shipping address fields');
+      Alert.alert('Eroare', 'Completează toate câmpurile adresei de livrare');
       return;
     }
 
@@ -145,7 +152,7 @@ export default function CheckoutScreen() {
       if (!billingAddress.firstName || !billingAddress.lastName || !billingAddress.address || 
           !billingAddress.city || !billingAddress.postalCode || !billingAddress.countryCode || 
           !billingAddress.phone) {
-        Alert.alert('Error', 'Please fill in all billing address fields');
+        Alert.alert('Eroare', 'Completează toate câmpurile adresei de facturare');
         return;
       }
     }
@@ -184,7 +191,7 @@ export default function CheckoutScreen() {
       setCurrentStep('shipping');
     } catch (err) {
       console.error('Failed to update cart:', err);
-      Alert.alert('Error', 'Failed to save delivery information');
+      Alert.alert('Eroare', 'Datele de livrare nu au putut fi salvate');
     } finally {
       setLoading(false);
     }
@@ -192,7 +199,7 @@ export default function CheckoutScreen() {
 
   const handleShippingNext = async () => {
     if (!selectedShippingOption || !cart) {
-      Alert.alert('Error', 'Please select a shipping method');
+      Alert.alert('Eroare', 'Alege o metodă de livrare');
       return;
     }
 
@@ -207,7 +214,7 @@ export default function CheckoutScreen() {
       setCurrentStep('payment');
     } catch (err) {
       console.error('Failed to add shipping method:', err);
-      Alert.alert('Error', 'Failed to save shipping method');
+      Alert.alert('Eroare', 'Metoda de livrare nu a putut fi salvată');
     } finally {
       setLoading(false);
     }
@@ -215,7 +222,7 @@ export default function CheckoutScreen() {
 
   const handlePlaceOrder = async () => {
     if (!selectedPaymentProvider || !cart) {
-      Alert.alert('Error', 'Please select a payment provider');
+      Alert.alert('Eroare', 'Alege o metodă de plată');
       return;
     }
 
@@ -235,11 +242,11 @@ export default function CheckoutScreen() {
         // Cart will be cleared on the order confirmation page to prevent empty cart flash
         router.replace(`/order-confirmation/${result.order.id}`);
       } else {
-        Alert.alert('Error', result.error?.message || 'Failed to complete order');
+        Alert.alert('Eroare', result.error?.message || 'Comanda nu a putut fi finalizată');
       }
     } catch (err: any) {
       console.error('Failed to complete order:', err);
-      Alert.alert('Error', err?.message || 'Failed to complete order');
+      Alert.alert('Eroare', err?.message || 'Comanda nu a putut fi finalizată');
     } finally {
       setLoading(false);
     }
@@ -249,7 +256,7 @@ export default function CheckoutScreen() {
     return (
       <View style={[styles.centerContainer, { backgroundColor: colors.background }]}>
         <Text style={[styles.errorText, { color: colors.text }]}>
-          No cart found. Please add items to your cart first.
+          Nu există niciun coș. Adaugă mai întâi produse în coș.
         </Text>
       </View>
     );
@@ -291,7 +298,7 @@ export default function CheckoutScreen() {
                 },
               ]}
             >
-              {step.charAt(0).toUpperCase() + step.slice(1)}
+              {STEP_LABELS[step]}
             </Text>
           </View>
         ))}

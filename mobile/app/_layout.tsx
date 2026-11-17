@@ -82,7 +82,7 @@ export default function RootLayout() {
                 name="checkout"
                 options={{
                   headerShown: true,
-                  title: 'Checkout',
+                  title: 'Finalizare comandă',
                   presentation: 'card',
                   headerBackButtonDisplayMode: "minimal",
                 }}
@@ -91,7 +91,7 @@ export default function RootLayout() {
                 name="order-confirmation/[id]"
                 options={{
                   headerShown: true,
-                  title: 'Order Confirmed',
+                  title: 'Comandă confirmată',
                   headerLeft: () => null,
                   gestureEnabled: false,
                   headerBackVisible: false,

@@ -15,7 +15,7 @@ export function getPaymentProviderInfo(providerId: string): PaymentProviderInfo 
     case 'pp_system_default':
       return {
         icon: 'creditcard',
-        title: 'Manual Payment',
+        title: 'Plată la livrare',
       };
     default:
       return {

@@ -32,7 +32,7 @@ export default function HomeScreen() {
       setProducts(fetchedProducts);
     } catch (err) {
       console.error('Failed to fetch products:', err);
-      setError('Failed to load products. Please try again.');
+      setError('Produsele nu au putut fi încărcate. Încearcă din nou.');
     } finally {
       setLoading(false);
       setRefreshing(false);
@@ -51,7 +51,7 @@ export default function HomeScreen() {
   };
 
   if (loading) {
-    return <Loading message="Loading products..." />;
+    return <Loading message="Se încarcă produsele..." />;
   }
 
   if (error) {
@@ -76,12 +76,12 @@ export default function HomeScreen() {
         ListHeaderComponent={
           <View style={styles.header}>
             <Image
-              source={{ uri: 'https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?w=800' }}
+              source={{ uri: 'https://media.istockphoto.com/id/466732980/ro/fotografie/boabe-de-cafea.jpg?s=612x612&w=0&k=20&c=XubnCEaSmPw-WMkfcm6wBoivQZDMxWLRit_PupUdUhI=' }}
               style={[styles.banner, { backgroundColor: colors.imagePlaceholder }]}
               contentFit="cover"
             />
             <Text style={[styles.sectionTitle, { color: colors.text }]}>
-              Latest Products
+              Cele mai recente produse
             </Text>
           </View>
         }
@@ -97,7 +97,7 @@ export default function HomeScreen() {
         ListEmptyComponent={
           <View style={styles.emptyContainer}>
             <Text style={[styles.emptyText, { color: colors.text }]}>
-              No products available
+              Nu există produse disponibile
             </Text>
           </View>
         }

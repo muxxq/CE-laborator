@@ -36,14 +36,14 @@ export function PaymentStep({
       <View style={styles.contentWrapper}>
         <View style={styles.section}>
       <Text style={[styles.sectionTitle, { color: colors.text }]}>
-        Select Payment Method
+        Alege metoda de plată
       </Text>
 
       {loading ? (
         <Loading />
       ) : paymentProviders.length === 0 ? (
         <Text style={[styles.emptyText, { color: colors.icon }]}>
-          No payment providers available
+          Nu există metode de plată disponibile
         </Text>
       ) : (
         paymentProviders.map((provider) => {
@@ -89,7 +89,7 @@ export function PaymentStep({
 
       <View style={[styles.summary, { borderColor: colors.icon + '30' }]}>
         <Text style={[styles.summaryTitle, { color: colors.text }]}>
-          Order Summary
+          Sumarul comenzii
         </Text>
         <View style={styles.summaryRow}>
           <Text style={[styles.summaryLabel, { color: colors.text }]}>Subtotal</Text>
@@ -98,19 +98,19 @@ export function PaymentStep({
           </Text>
         </View>
         <View style={styles.summaryRow}>
-          <Text style={[styles.summaryLabel, { color: colors.text }]}>Discount</Text>
+          <Text style={[styles.summaryLabel, { color: colors.text }]}>Reducere</Text>
           <Text style={[styles.summaryValue, { color: colors.text }]}>
             {(cart.discount_total || 0) > 0 ? '-' : ''}{formatPrice(cart.discount_total || 0, cart.currency_code)}
           </Text>
         </View>
         <View style={styles.summaryRow}>
-          <Text style={[styles.summaryLabel, { color: colors.text }]}>Shipping</Text>
+          <Text style={[styles.summaryLabel, { color: colors.text }]}>Livrare</Text>
           <Text style={[styles.summaryValue, { color: colors.text }]}>
             {formatPrice(cart.shipping_total || 0, cart.currency_code)}
           </Text>
         </View>
         <View style={styles.summaryRow}>
-          <Text style={[styles.summaryLabel, { color: colors.text }]}>Tax</Text>
+          <Text style={[styles.summaryLabel, { color: colors.text }]}>TVA</Text>
           <Text style={[styles.summaryValue, { color: colors.text }]}>
             {formatPrice(cart.tax_total || 0, cart.currency_code)}
           </Text>
@@ -128,13 +128,13 @@ export function PaymentStep({
       <View style={[styles.buttonContainer, { backgroundColor: colors.background, borderTopColor: colors.icon + '30' }]}>
         <View style={styles.buttonRow}>
           <Button
-            title="Back"
+            title="Înapoi"
             variant="secondary"
             onPress={onBack}
             style={styles.halfButton}
           />
           <Button
-            title="Place Order"
+            title="Plasează comanda"
             onPress={onPlaceOrder}
             loading={loading}
             disabled={!selectedPaymentProvider}

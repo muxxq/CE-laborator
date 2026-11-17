@@ -57,7 +57,7 @@ export function RegionProvider({ children }: { children: ReactNode }) {
       }
     } catch (err) {
       console.error("Failed to load regions:", err);
-      setError("Failed to load regions. Please try again.");
+      setError("Regiunile nu au putut fi încărcate. Încearcă din nou.");
     } finally {
       setLoading(false);
     }

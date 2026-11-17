@@ -54,10 +54,10 @@ export function RegionSelector({ onRegionChange }: RegionSelectorProps) {
 
   return (
     <ScrollView style={styles.container}>
-      <Text style={[styles.title, { color: colors.text }]}>Select Country</Text>
+      <Text style={[styles.title, { color: colors.text }]}>Alege țara</Text>
       {countries.length === 0 ? (
         <Text style={[styles.emptyText, { color: colors.icon }]}>
-          No countries available
+          Nu există țări disponibile
         </Text>
       ) : (
         countries.map((country) => {

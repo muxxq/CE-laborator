@@ -21,7 +21,7 @@ export default function CartStackLayout() {
       <Stack.Screen 
         name="index"
         options={{
-          title: 'Cart',
+          title: 'Coșul meu',
           headerLeft: () => (
             <TouchableOpacity
               onPress={() => navigation.dispatch(DrawerActions.openDrawer())}

@@ -34,14 +34,14 @@ export function ShippingStep({
       <View style={styles.contentWrapper}>
         <View style={styles.section}>
       <Text style={[styles.sectionTitle, { color: colors.text }]}>
-        Select Shipping Method
+        Alege metoda de livrare
       </Text>
 
       {loading ? (
         <Loading />
       ) : shippingOptions.length === 0 ? (
         <Text style={[styles.emptyText, { color: colors.icon }]}>
-          No shipping options available
+          Nu există opțiuni de livrare disponibile
         </Text>
       ) : (
         shippingOptions.map((option) => (
@@ -92,13 +92,13 @@ export function ShippingStep({
       <View style={[styles.buttonContainer, { backgroundColor: colors.background, borderTopColor: colors.icon + '30' }]}>
         <View style={styles.buttonRow}>
           <Button
-            title="Back"
+            title="Înapoi"
             variant="secondary"
             onPress={onBack}
             style={styles.halfButton}
           />
           <Button
-            title="Continue"
+            title="Continuă"
             onPress={onNext}
             loading={loading}
             disabled={!selectedShippingOption}

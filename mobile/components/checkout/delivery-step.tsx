@@ -95,7 +95,7 @@ export function DeliveryStep({
       >
         <View style={styles.section}>
           <Text style={[styles.sectionTitle, { color: colors.text }]}>
-            Contact Information
+            Date de contact
           </Text>
 
           <TextInput
@@ -110,7 +110,7 @@ export function DeliveryStep({
           />
 
           <Text style={[styles.sectionTitle, { color: colors.text, marginTop: 20 }]}>
-            Shipping Address
+            Adresa de livrare
           </Text>
 
           <AddressForm
@@ -133,7 +133,7 @@ export function DeliveryStep({
 
           <View style={styles.switchContainer}>
             <Text style={[styles.switchLabel, { color: colors.text }]}>
-              Use same address for billing
+              Folosește aceeași adresă pentru facturare
             </Text>
             <Switch
               value={useSameForBilling}
@@ -144,7 +144,7 @@ export function DeliveryStep({
           {!useSameForBilling && (
             <>
               <Text style={[styles.sectionTitle, { color: colors.text, marginTop: 20 }]}>
-                Billing Address
+                Adresa de facturare
               </Text>
 
               <AddressForm
@@ -171,7 +171,7 @@ export function DeliveryStep({
         {/* Button moved inside ScrollView for consistent behavior */}
         <View style={[styles.buttonContainer, { backgroundColor: colors.background }]}>
           <Button
-            title="Continue"
+            title="Continuă"
             onPress={onNext}
             loading={loading}
             style={styles.button}

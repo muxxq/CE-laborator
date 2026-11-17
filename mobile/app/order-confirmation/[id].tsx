@@ -36,7 +36,7 @@ export default function OrderConfirmationScreen() {
       setOrder(fetchedOrder);
     } catch (err) {
       console.error('Failed to fetch order:', err);
-      setError('Failed to load order details');
+      setError('Detaliile comenzii nu au putut fi încărcate');
     } finally {
       setLoading(false);
     }
@@ -58,17 +58,17 @@ export default function OrderConfirmationScreen() {
   }, [clearCart]);
 
   if (loading) {
-    return <Loading message="Loading order details..." />;
+    return <Loading message="Se încarcă detaliile comenzii..." />;
   }
 
   if (error || !order) {
     return (
       <View style={[styles.centerContainer, { backgroundColor: colors.background }]}>
         <Text style={[styles.errorText, { color: colors.text }]}>
-          {error || 'Order not found'}
+          {error || 'Comanda nu a fost găsită'}
         </Text>
         <Button
-          title="Go to Home"
+          title="Mergi la pagina principală"
           onPress={() => {
             // Reset to home screen and clear the navigation stack
             router.dismissAll();
@@ -87,13 +87,13 @@ export default function OrderConfirmationScreen() {
           <Text style={[styles.checkmark, { color: colors.onTint }]}>✓</Text>
         </View>
 
-        <Text style={[styles.title, { color: colors.text }]}>Order Confirmed!</Text>
+        <Text style={[styles.title, { color: colors.text }]}>Comandă confirmată!</Text>
         <Text style={[styles.subtitle, { color: colors.icon }]}>
-          We have received your order and will process it as soon as possible.
+          Am primit comanda ta și o vom procesa cât mai curând.
         </Text>
 
         <Button
-          title="Continue Shopping"
+          title="Continuă cumpărăturile"
           onPress={() => {
             // Reset to home screen and clear the navigation stack
             router.dismissAll();
@@ -103,10 +103,10 @@ export default function OrderConfirmationScreen() {
         />
 
         <View style={[styles.card, { backgroundColor: colors.background, borderColor: colors.icon + '30' }]}>
-          <Text style={[styles.cardTitle, { color: colors.text }]}>Order Details</Text>
+          <Text style={[styles.cardTitle, { color: colors.text }]}>Detaliile comenzii</Text>
           
           <View style={styles.infoRow}>
-            <Text style={[styles.label, { color: colors.icon }]}>Order ID</Text>
+            <Text style={[styles.label, { color: colors.icon }]}>ID comandă</Text>
             <Text style={[styles.value, { color: colors.text }]}>{order.display_id}</Text>
           </View>
 
@@ -117,7 +117,7 @@ export default function OrderConfirmationScreen() {
         </View>
 
         <View style={[styles.card, { backgroundColor: colors.background, borderColor: colors.icon + '30' }]}>
-          <Text style={[styles.cardTitle, { color: colors.text }]}>Order Items</Text>
+          <Text style={[styles.cardTitle, { color: colors.text }]}>Produse comandate</Text>
           
           {order.items?.map((item, index) => (
             <View 
@@ -154,12 +154,12 @@ export default function OrderConfirmationScreen() {
         </View>
 
         <View style={[styles.card, { backgroundColor: colors.background, borderColor: colors.icon + '30' }]}>
-          <Text style={[styles.cardTitle, { color: colors.text }]}>Shipping</Text>
+          <Text style={[styles.cardTitle, { color: colors.text }]}>Livrare</Text>
           
           {order.shipping_address && (
             <>
               <Text style={[styles.sectionTitle, { color: colors.text }]}>
-                Shipping Address
+                Adresa de livrare
               </Text>
               <Text style={[styles.addressText, { color: colors.text }]}>
                 {order.shipping_address.first_name} {order.shipping_address.last_name}
@@ -179,7 +179,7 @@ export default function OrderConfirmationScreen() {
           {order.shipping_methods && order.shipping_methods.length > 0 && (
             <>
               <Text style={[styles.sectionTitle, { color: colors.text }]}>
-                Shipping Method
+                Metoda de livrare
               </Text>
               {order.shipping_methods.map((method) => (
                 <Text key={method.id} style={[styles.addressText, { color: colors.text }]}>
@@ -191,12 +191,12 @@ export default function OrderConfirmationScreen() {
         </View>
 
         <View style={[styles.card, { backgroundColor: colors.background, borderColor: colors.icon + '30' }]}>
-          <Text style={[styles.cardTitle, { color: colors.text }]}>Payment</Text>
+          <Text style={[styles.cardTitle, { color: colors.text }]}>Plată</Text>
           
           {order.payment_collections && order.payment_collections.length > 0 && (
             <>
               <Text style={[styles.sectionTitle, { color: colors.text }]}>
-                Payment Method
+                Metoda de plată
               </Text>
               {order.payment_collections[0].payments?.map((payment) => {
                 const providerInfo = getPaymentProviderInfo(payment.provider_id);
@@ -219,7 +219,7 @@ export default function OrderConfirmationScreen() {
           {order.billing_address && (
             <>
               <Text style={[styles.sectionTitle, { color: colors.text }]}>
-                Billing Address
+                Adresa de facturare
               </Text>
               <Text style={[styles.addressText, { color: colors.text }]}>
                 {order.billing_address.first_name} {order.billing_address.last_name}
@@ -238,7 +238,7 @@ export default function OrderConfirmationScreen() {
         </View>
 
         <View style={[styles.card, { backgroundColor: colors.background, borderColor: colors.icon + '30' }]}>
-          <Text style={[styles.cardTitle, { color: colors.text }]}>Order Summary</Text>
+          <Text style={[styles.cardTitle, { color: colors.text }]}>Sumarul comenzii</Text>
           
           <View style={styles.summaryRow}>
             <Text style={[styles.summaryLabel, { color: colors.text }]}>Subtotal</Text>
@@ -248,21 +248,21 @@ export default function OrderConfirmationScreen() {
           </View>
 
           <View style={styles.summaryRow}>
-            <Text style={[styles.summaryLabel, { color: colors.text }]}>Discount</Text>
+            <Text style={[styles.summaryLabel, { color: colors.text }]}>Reducere</Text>
             <Text style={[styles.summaryValue, { color: colors.text }]}>
               {(order.discount_total || 0) > 0 ? '-' : ''}{formatPrice(order.discount_total || 0, order.currency_code)}
             </Text>
           </View>
 
           <View style={styles.summaryRow}>
-            <Text style={[styles.summaryLabel, { color: colors.text }]}>Shipping</Text>
+            <Text style={[styles.summaryLabel, { color: colors.text }]}>Livrare</Text>
             <Text style={[styles.summaryValue, { color: colors.text }]}>
               {formatPrice(order.shipping_total || 0, order.currency_code)}
             </Text>
           </View>
 
           <View style={styles.summaryRow}>
-            <Text style={[styles.summaryLabel, { color: colors.text }]}>Tax</Text>
+            <Text style={[styles.summaryLabel, { color: colors.text }]}>TVA</Text>
             <Text style={[styles.summaryValue, { color: colors.text }]}>
               {formatPrice(order.tax_total || 0, order.currency_code)}
             </Text>

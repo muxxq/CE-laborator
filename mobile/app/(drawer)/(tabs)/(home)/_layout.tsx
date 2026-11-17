@@ -48,7 +48,7 @@ export default function HomeStackLayout() {
       <Stack.Screen 
         name="product/[id]"
         options={{
-          title: 'Product Details',
+          title: 'Detalii produs',
           presentation: 'card',
           headerBackButtonDisplayMode: "minimal"
         }}

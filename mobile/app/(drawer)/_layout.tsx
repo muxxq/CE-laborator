@@ -14,8 +14,8 @@ export default function DrawerLayout() {
       <Drawer.Screen
         name="(tabs)"
         options={{
-          drawerLabel: 'Home',
-          title: 'Shop',
+          drawerLabel: 'Acasă',
+          title: 'Magazin',
         }}
       />
     </Drawer>
