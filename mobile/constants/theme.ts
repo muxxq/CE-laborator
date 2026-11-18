@@ -5,17 +5,17 @@
 
 import { Platform } from 'react-native';
 
-// Paleta Boabă: crem + espresso + accent teracotă
-const tintColorLight = '#C0583A'; // teracotă
-const tintColorDark = '#E07A5A'; // teracotă deschisă (se vede bine pe fundal închis)
+// Paleta Boaba: crem + espresso + accent teracota
+const tintColorLight = '#C0583A'; // teracota
+const tintColorDark = '#E07A5A'; // teracota deschisa
 
 export const Colors = {
   light: {
     text: '#2B1D14', // espresso
     background: '#F7F1E8', // crem
     tint: tintColorLight,
-    onTint: '#FFFFFF', // textul de pe butoanele cu fundal teracotă
-    icon: '#8A7A6C', // gri cald (text secundar, iconițe)
+    onTint: '#FFFFFF', // textul de pe butoanele cu fundal teracota
+    icon: '#8A7A6C', // gri cald (text secundar, iconite)
     tabIconDefault: '#8A7A6C',
     tabIconSelected: tintColorLight,
     border: '#E6DACB',
@@ -31,7 +31,7 @@ export const Colors = {
     text: '#F2E8DC', // crem
     background: '#1A1411', // espresso
     tint: tintColorDark,
-    onTint: '#1A1411', // pe teracota deschisă, textul închis se citește mai bine
+    onTint: '#1A1411', // pe teracota deschisa, textul inchis se citeste mai bine
     icon: '#A89888',
     tabIconDefault: '#A89888',
     tabIconSelected: tintColorDark,
@@ -47,7 +47,6 @@ export const Colors = {
 };
 
 // Fonturile Boabă (încărcate în app/_layout.tsx cu useFonts).
-// Fiecare grosime e un font separat, de aceea nu mai folosim fontWeight.
 export const FontFamily = {
   title: 'Fraunces_700Bold', // titluri mari (serif, „de cafenea”)
   titleSemiBold: 'Fraunces_600SemiBold', // subtitluri, prețuri mari

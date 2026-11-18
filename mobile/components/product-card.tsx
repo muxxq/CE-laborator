@@ -2,6 +2,7 @@ import { Colors, FontFamily } from "@/constants/theme";
 import { useRegion } from "@/context/region-context";
 import { useColorScheme } from '@/hooks/use-color-scheme';
 import { formatPrice } from "@/lib/format-price";
+import { isLowStock } from "@/lib/inventory";
 import type { HttpTypes } from "@medusajs/types";
 import { Image } from "expo-image";
 import { useRouter } from "expo-router";
@@ -27,6 +28,9 @@ export const ProductCard = React.memo(function ProductCard({ product }: ProductC
   // Use selected region's currency code
   const currencyCode = selectedRegion?.currency_code;
 
+  // Badge-ul apare dacă măcar o variantă (gramaj) are stoc limitat
+  const showLowStock = product.variants?.some((v) => isLowStock(v)) ?? false;
+
   return (
     <TouchableOpacity
       style={[styles.card, { backgroundColor: colors.background }]}
@@ -41,6 +45,11 @@ export const ProductCard = React.memo(function ProductCard({ product }: ProductC
         style={[styles.image, { backgroundColor: colors.imagePlaceholder }]}
         contentFit="cover"
       />
+      {showLowStock && (
+        <View style={[styles.badge, { backgroundColor: colors.warning }]}>
+          <Text style={[styles.badgeText, { color: colors.onTint }]}>Stoc limitat</Text>
+        </View>
+      )}
       <View style={styles.content}>
         <Text
           style={[styles.title, { color: colors.text }]}
@@ -73,6 +82,18 @@ const styles = StyleSheet.create({
     width: "100%",
     height: 180,
     borderRadius: 8,
+  },
+  badge: {
+    position: "absolute",
+    top: 8,
+    left: 8,
+    paddingHorizontal: 8,
+    paddingVertical: 4,
+    borderRadius: 6,
+  },
+  badgeText: {
+    fontSize: 11,
+    fontFamily: FontFamily.semiBold,
   },
   content: {
     padding: 12,

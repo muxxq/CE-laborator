@@ -7,7 +7,7 @@ import { useCart } from '@/context/cart-context';
 import { useRegion } from '@/context/region-context';
 import { useColorScheme } from '@/hooks/use-color-scheme';
 import { formatPrice } from '@/lib/format-price';
-import { isVariantInStock } from '@/lib/inventory';
+import { isLowStock, isVariantInStock } from '@/lib/inventory';
 import { sdk } from '@/lib/sdk';
 import type { HttpTypes } from '@medusajs/types';
 import { useLocalSearchParams, useNavigation } from 'expo-router';
@@ -37,7 +37,7 @@ export default function ProductDetailsScreen() {
       setError(null);
 
       const { product: fetchedProduct } = await sdk.store.product.retrieve(id, {
-        fields: '*variants.calculated_price,+variants.inventory_quantity',
+        fields: '*variants.calculated_price,+variants.inventory_quantity,+metadata',
         region_id: selectedRegion?.id,
       });
 
@@ -158,17 +158,38 @@ export default function ProductDetailsScreen() {
   // Check if selected variant is in stock
   const isInStock = isVariantInStock(selectedVariant);
 
+  // Atributele cafelei, salvate în metadata produsului.
+  // Păstrăm doar rândurile care au valoare, deci la accesorii lista rămâne goală.
+  const coffeeAttributes = [
+    { label: 'Origine', value: product.metadata?.origine },
+    { label: 'Prăjire', value: product.metadata?.prajire },
+    { label: 'Note', value: product.metadata?.note },
+  ].filter((attr) => typeof attr.value === 'string' && attr.value !== '');
+
   return (
     <ScrollView style={[styles.container, { backgroundColor: colors.background }]}>
       <ProductImageSlider images={images} />
 
       <View style={styles.content}>
         <Text style={[styles.title, { color: colors.text }]}>{product.title}</Text>
-        
+
         {product.description && (
           <Text style={[styles.description, { color: colors.icon }]}>
             {product.description}
           </Text>
+        )}
+
+        {coffeeAttributes.length > 0 && (
+          <View style={styles.attributes}>
+            {coffeeAttributes.map((attr) => (
+              <View key={attr.label} style={styles.attributeRow}>
+                <Text style={[styles.attributeLabel, { color: colors.icon }]}>{attr.label}</Text>
+                <Text style={[styles.attributeValue, { color: colors.text }]}>
+                  {String(attr.value)}
+                </Text>
+              </View>
+            ))}
+          </View>
         )}
 
         <View style={styles.priceContainer}>
@@ -180,12 +201,11 @@ export default function ProductDetailsScreen() {
               <Text style={[styles.outOfStockText, { color: colors.onTint }]}>Stoc epuizat</Text>
             </View>
           )}
-          {isInStock && selectedVariant?.inventory_quantity !== undefined && 
-           selectedVariant.inventory_quantity! <= 10 && 
-           selectedVariant.manage_inventory !== false && (
+          {isLowStock(selectedVariant) && (
             <View style={[styles.stockBadge, { backgroundColor: colors.warning }]}>
               <Text style={[styles.lowStockText, { color: colors.onTint }]}>
-                Doar {selectedVariant.inventory_quantity} în stoc
+                Stoc limitat – doar {selectedVariant?.inventory_quantity}{' '}
+                {selectedVariant?.inventory_quantity === 1 ? 'bucată' : 'bucăți'}
               </Text>
             </View>
           )}
@@ -302,6 +322,23 @@ const styles = StyleSheet.create({
     fontSize: 16,
     lineHeight: 24,
     marginBottom: 20,
+    fontFamily: FontFamily.regular,
+  },
+  attributes: {
+    marginBottom: 20,
+    gap: 8,
+  },
+  attributeRow: {
+    flexDirection: 'row',
+  },
+  attributeLabel: {
+    width: 80,
+    fontSize: 15,
+    fontFamily: FontFamily.semiBold,
+  },
+  attributeValue: {
+    flex: 1,
+    fontSize: 15,
     fontFamily: FontFamily.regular,
   },
   priceContainer: {
